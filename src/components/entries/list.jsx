@@ -15,6 +15,7 @@ const List = ({ entries, currency, exchangeRates }) => (
 			<TableHead>
 				<TableRow>
 					<TableCell>Name</TableCell>
+					<TableCell>&nbsp;</TableCell>
 					<TableCell align="right">Amount</TableCell>
 				</TableRow>
 			</TableHead>

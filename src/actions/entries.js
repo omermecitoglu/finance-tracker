@@ -8,4 +8,8 @@ export default {
 		amount,
 		currency,
 	}),
+	destroy: (uuid) => ({
+		type: "DESTROY_ENTRY",
+		uuid,
+	}),
 };

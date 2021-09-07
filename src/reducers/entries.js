@@ -19,6 +19,8 @@ export default (state = [], action) => {
 				...state,
 				entry(undefined, action),
 			];
+		case "DESTROY_ENTRY":
+			return state.filter(e => e.uuid !== action.uuid);
 		case "CLEAR_ENTRIES":
 			return [];
 		default:
