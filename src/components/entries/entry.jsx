@@ -1,14 +1,6 @@
 import React from "react";
 import { TableRow, TableCell } from "@material-ui/core";
-
-function symbol(currency) {
-	switch(currency) {
-		case "EUR": return "€";
-		case "USD": return "$";
-		case "TRY": return "₺";
-		default: return "";
-	}
-}
+import { symbol } from "./utils";
 
 const Entry = ({ name, plus, amount, currency }) => (
 	<TableRow>
