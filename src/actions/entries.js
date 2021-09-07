@@ -8,6 +8,12 @@ export default {
 		amount,
 		currency,
 	}),
+	update: (uuid, name, amount) => ({
+		type: "UPDATE_ENTRY",
+		uuid,
+		name,
+		amount,
+	}),
 	destroy: (uuid) => ({
 		type: "DESTROY_ENTRY",
 		uuid,
