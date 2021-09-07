@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { store } from "./core";
 import { Container, Button } from "@material-ui/core";
 
 const App = () => (
@@ -13,4 +15,4 @@ const root = document.createElement("div");
 root.id = "root";
 body.prepend(root);
 
-ReactDOM.render(<App />, root);
+ReactDOM.render(<Provider store={store}><App /></Provider>, root);
