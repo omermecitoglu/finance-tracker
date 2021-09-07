@@ -7,6 +7,15 @@ export function symbol(currency) {
 	}
 }
 
+export function price(plus, amount, currency) {
+	const content = [
+		(plus ? "" : "-"),
+		symbol(currency),
+		amount,
+	];
+	return content.join("");
+}
+
 export function sum(items) {
 	return items.reduce((a, b) => (a + b), 0);
 }
