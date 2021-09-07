@@ -1,11 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper } from "@material-ui/core";
+import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper, Typography } from "@material-ui/core";
 import Entry from "./entry";
+import { symbol } from "./utils";
 
-const List = ({ entries }) => (
+const List = ({ entries, currency }) => (
 	<TableContainer component={Paper}>
 		<Table>
+			<caption>
+				<Typography align="right">
+					Total: {symbol(currency)}???
+				</Typography>
+			</caption>
 			<TableHead>
 				<TableRow>
 					<TableCell>Name</TableCell>
@@ -21,8 +27,9 @@ const List = ({ entries }) => (
 	</TableContainer>
 );
 
-const mstp = ({ entries }) => ({
+const mstp = ({ entries, currency }) => ({
 	entries,
+	currency: currency.current,
 });
 
 export default connect(mstp, null)(List);
