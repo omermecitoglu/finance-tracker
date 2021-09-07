@@ -4,12 +4,12 @@ import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper
 import Entry from "./entry";
 import { symbol, sum, pluck } from "./utils";
 
-const List = ({ entries, currency }) => (
+const List = ({ entries, currency, exchangeRates }) => (
 	<TableContainer component={Paper}>
 		<Table>
 			<caption>
 				<Typography align="right">
-					Total: {symbol(currency)}{sum(pluck(entries, currency))}
+					Total: {symbol(currency)}{sum(pluck(entries, currency, exchangeRates)).toFixed(2)}
 				</Typography>
 			</caption>
 			<TableHead>
@@ -27,9 +27,10 @@ const List = ({ entries, currency }) => (
 	</TableContainer>
 );
 
-const mstp = ({ entries, currency }) => ({
+const mstp = ({ entries, currency, exchange }) => ({
 	entries,
 	currency: currency.current,
+	exchangeRates: exchange,
 });
 
 export default connect(mstp, null)(List);
