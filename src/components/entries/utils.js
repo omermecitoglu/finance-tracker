@@ -1,19 +1,6 @@
-export function symbol(currency) {
-	switch(currency) {
-		case "EUR": return "€";
-		case "USD": return "$";
-		case "TRY": return "₺";
-		default: return "";
-	}
-}
-
-export function price(plus, amount, currency) {
-	const content = [
-		(plus ? "" : "-"),
-		symbol(currency),
-		amount.toFixed(2),
-	];
-	return content.join("");
+export function price(amount, currency) {
+	const l10n = new Intl.NumberFormat("tr-TR", { style: "currency", currency });
+	return l10n.format(amount);
 }
 
 export function sum(items) {
@@ -25,7 +12,7 @@ export function pluck(entries, currency, exchange) {
 }
 
 export function convert(data, from, to, amount) {
-	const result = data.find(e => e.code === from + "_TO_" + to);
+	const result = data.find(e => e.code === from + ":" + to);
 	if(from === to) {
 		return amount;
 	}

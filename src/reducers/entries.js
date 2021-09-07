@@ -4,7 +4,6 @@ const entry = (state, action) => {
 			return {
 				uuid: action.uuid,
 				name: action.name,
-				plus: action.plus,
 				amount: action.amount,
 				currency: action.currency,
 			};

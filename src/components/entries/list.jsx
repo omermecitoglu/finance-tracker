@@ -2,14 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper, Typography } from "@material-ui/core";
 import Entry from "./entry";
-import { symbol, sum, pluck } from "./utils";
+import { price, sum, pluck } from "./utils";
 
 const List = ({ entries, currency, exchangeRates }) => (
 	<TableContainer component={Paper}>
 		<Table>
 			<caption>
 				<Typography align="right">
-					Total: {symbol(currency)}{sum(pluck(entries, currency, exchangeRates)).toFixed(2)}
+					Total: {price(sum(pluck(entries, currency, exchangeRates)), currency)}
 				</Typography>
 			</caption>
 			<TableHead>
