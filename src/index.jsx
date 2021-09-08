@@ -5,6 +5,7 @@ import { store, exchange } from "./core";
 import App from "./components/app";
 
 const body = document.getElementsByTagName("body")[0];
+body.style.backgroundColor = "#F5F5F5";
 const root = document.createElement("div");
 root.id = "root";
 body.prepend(root);
