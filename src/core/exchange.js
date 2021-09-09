@@ -1,7 +1,8 @@
 import actions from "~/actions/exchange";
 
-const api = "http://api.exchangeratesapi.io/v1/latest";
-const access_key = "c4e3318628cfd44a39e4f39400316ca4";
+// const api = "http://api.exchangeratesapi.io/v1/latest";
+// const access_key = "TEST";
+// const access_key = "c4e3318628cfd44a39e4f39400316ca4";
 const base_currency = "EUR";
 const valid_currencies = ["EUR", "USD", "TRY"];
 
@@ -11,6 +12,7 @@ function pick(obj) {
 
 export default {
 	fetch: async () => {
+		/*
 		const response = await fetch(api + "?access_key=" + access_key);
 		const data = await response.json();
 		if(data.error) {
@@ -19,7 +21,17 @@ export default {
 		if(!data.success) {
 			throw new Error("Failed to fetch currency data.");
 		}
-		return pick(data.rates);
+		return data.rates;
+		*/
+		return pick({
+			AED: 4.351033,
+			EUR: 1,
+			FJD: 2.451656,
+			TOP: 2.65493,
+			TRY: 9.883494,
+			TTD: 8.043676,
+			USD: 1.184603,
+		});
 	},
 	seed: (store, data) => {
 		store.dispatch(actions.clear());
